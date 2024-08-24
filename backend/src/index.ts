@@ -40,16 +40,6 @@ cloudinary.config({
     api_key: process.env.CLOUDINARY_API_KEY,
     api_secret: process.env.CLOUDINARY_API_SECRET,
 });
-app.use((req, res, next) => {
-    console.log(
-        "Incoming request:",
-        req.method,
-        req.path,
-        "from origin:",
-        req.get("origin"),
-    );
-    next();
-});
 app.use("/uploads/", express.static(path.join(process.cwd(), "/uploads/")));
 app.use("/posts", postsRoutes);
 app.use("/posts", likesRoutes);
