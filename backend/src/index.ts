@@ -19,11 +19,21 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
-const corsOptions = {
-    origin: "*",
-    // credentials: true,
-};
-app.use(cors(corsOptions));
+const allowedOrigin =
+    "https://66c98bebd4764d45f3cdf2ee--blog-abuja.netlify.app";
+
+// Configure CORS middleware
+app.use(
+    cors({
+        origin: allowedOrigin, // Set the specific origin
+        methods: ["GET", "POST", "OPTIONS"],
+        allowedHeaders: ["Content-Type", "Authorization"],
+        credentials: true, // Allow credentials
+    }),
+);
+
+// Handle preflight requests
+app.options("*", cors());
 
 cloudinary.config({
     cloud_name: process.env.CLOUDINARY_CLOUD_NAME,
