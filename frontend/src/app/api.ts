@@ -2,8 +2,8 @@ import axios from "axios";
 import { useLogoutQuery } from "../features/auth";
 
 export const api = axios.create({
-    // baseURL: "https://blog-1-9ozt.onrender.com",
-    baseURL: "http://localhost:5000",
+    baseURL: "https://blog-1-9ozt.onrender.com",
+    // baseURL: "http://localhost:5000",
     headers: {
         "Content-Type": "application/json",
     },
