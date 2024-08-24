@@ -1,7 +1,8 @@
 {
     "scripts": {
         "server": "npx nodemon",
-        "start": "NODE_ENV=prod node dist/index.js",
+        "build": "npx tsc",
+        "start": "npm run build && NODE_ENV=prod node dist/index.js",
         "seed": "npx tsc && node dist/seed.js"
     },
     "dependencies": {
