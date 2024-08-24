@@ -5,4 +5,5 @@ interface IUser {
     password: string;
     bio: string;
     avatar: string | File | null;
+    token: string;
 }

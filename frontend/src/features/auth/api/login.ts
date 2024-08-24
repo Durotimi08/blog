@@ -14,6 +14,7 @@ const login = async (
     credentials: ILoginCredentials,
 ): Promise<{ user: IUser }> => {
     const response = await api.post("/auth/login", credentials);
+    localStorage.setItem("token", response.data.token);
     return response.data;
 };
 

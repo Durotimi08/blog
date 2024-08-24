@@ -14,11 +14,9 @@ export const register = async (
         !registeringUser.password ||
         !registeringUser.fullName
     ) {
-        return res
-            .status(400)
-            .json({
-                message: "Username, password, and full name are required.",
-            });
+        return res.status(400).json({
+            message: "Username, password, and full name are required.",
+        });
     }
 
     const existingUser = await prisma.user.findUnique({
@@ -104,7 +102,7 @@ export const login = async (
             sameSite: "none",
             maxAge: 24 * 60 * 60 * 1000,
         });
-        res.status(200).json({ user: userWithoutPassword });
+        res.status(200).json({ user: userWithoutPassword, token: token });
     } catch (error) {
         next({
             error,
