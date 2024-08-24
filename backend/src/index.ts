@@ -20,12 +20,8 @@ app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
 
 const corsOptions = {
-    origin: [
-        "http://localhost:5173",
-        "http://localhost:4173",
-        "https://blog-abuja.netlify.app",
-    ],
-    credentials: true,
+    origin: "*",
+    // credentials: true,
 };
 app.use(cors(corsOptions));
 
